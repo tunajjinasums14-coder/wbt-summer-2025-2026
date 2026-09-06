@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Registration Form</title>
+
+    <style>
+        body {
+            background-color: lightblue;
+            font-family: Arial;
+        }
+    </style>
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            document.getElementById("FORM").addEventListener("submit", function (event) {
+
+                var fname = document.getElementById("fname").value;
+                var lname = document.getElementById("lname").value;
+                var email = document.getElementById("email").value;
+                var phone = document.getElementById("phone").value;
+                var country = document.getElementById("country").value;
+                var agree = document.getElementById("agree").checked;
+
+                if (fname == "" || lname == "" || email == "" || phone == "") {
+
+                    alert("Fill all fields");
+                    event.preventDefault();
+                }
+
+                else if (!email.includes("@") || !email.includes(".")) {
+
+                    alert("Invalid Email");
+                    event.preventDefault();
+                }
+
+                else if (phone.length != 10 || isNaN(phone)) {
+
+                    alert("Invalid Phone");
+                    event.preventDefault();
+                }
+
+                else if (country == "") {
+
+                    alert("Select Country");
+                    event.preventDefault();
+                }
+
+                else if (!agree) {
+
+                    alert("Please accept Terms & Conditions");
+                    event.preventDefault();
+                }
+
+                else {
+
+                    alert("Registration Successful");
+
+                }
+
+            });
+
+        });
+
+    </script>
+
+</head>
+
+<body>
+
+    <h2>Registration Form</h2>
+
+    <form id="FORM">
+
+        First Name<br>
+        <input type="text" id="fname">
+
+        Last Name<br>
+        <input type="text" id="lname">
+
+        Email<br>
+        <input type="text" id="email">
+
+        Phone<br>
+        <input type="text" id="phone">
+
+        Country<br>
+        <select id="country">
+            <option value="">Select Country</option>
+            <option>Bangladesh</option>
+            <option>India</option>
+            <option>Pakistan</option>
+        </select>
+
+        Gender<br>
+
+        <input type="radio" name="gender">Male
+
+        <input type="radio" name="gender">Female
+
+        <br><br>
+
+        <input type="checkbox" id="agree">
+        I agree to the Terms & Conditions
+
+        <br><br>
+
+        <input type="submit" value="Submit">
+
+        <input type="reset" value="Reset">
+
+    </form>
+
+    <footer>
+        <hr>
+        Copyright © 2026
+    </footer>
+
+</body>
+
+</html>
